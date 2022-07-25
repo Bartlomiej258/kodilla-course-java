@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class ExeptionHandlingTestSuite {
 
     @Test
-    void testShouldThrowException() {
+    void testThrowExceptionAndDontThrow() {
         //Given
         SecondChallenge secondChallenge = new SecondChallenge();
 

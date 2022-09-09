@@ -1,3 +1,40 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+**/out/ **/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+
 .idea
 *.iws
 *.iml
@@ -11,5 +48,7 @@ kodilla-stream/build
 kodilla-stream/gradle
 kodilla-testing/build
 kodilla-testing/gradle
+kodilla-good-paterns/build
+kodilla-good-paterns/gradle
 
 

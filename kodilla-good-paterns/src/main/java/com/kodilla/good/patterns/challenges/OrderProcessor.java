@@ -2,9 +2,9 @@ package com.kodilla.good.patterns.challenges;
 
 public class OrderProcessor {
 
-    private InformationServiceInterface informationService;
-    private OrderRepositoryInterface orderRepository;
-    private OrderServiceInterface orderService;
+    private final InformationServiceInterface informationService;
+    private final OrderRepositoryInterface orderRepository;
+    private final OrderServiceInterface orderService;
 
     public OrderProcessor(final InformationServiceInterface informationService,
                           final OrderRepositoryInterface orderRepository,

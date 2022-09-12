@@ -1,6 +1,8 @@
 package com.kodilla.good.patterns.challenges;
 
-public class Product {
+import com.kodilla.good.patterns.Food2Door.Food2Door;
+
+class Product {
     private String productName;
     private String category;
     private double price;
@@ -31,4 +33,5 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
 }

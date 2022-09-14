@@ -1,6 +1,7 @@
-include 'kodilla-exception'
-include 'kodilla-stream'
+rootProject.name = 'Kodilla-course-Java'
 include 'kodilla-testing'
-include 'src'
-include 'kodilla-good-paterns'
-
+include 'kodilla-stream'
+include 'kodilla-exception'
+include 'kodilla-good-patterns'
+include 'kodilla-spring-intro'
+include 'kodilla-spring'

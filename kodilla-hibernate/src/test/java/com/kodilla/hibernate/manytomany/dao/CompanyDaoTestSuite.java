@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
@@ -13,6 +17,7 @@ public class CompanyDaoTestSuite {
 
     @Autowired
     CompanyDao companyDao;
+    EmployeeDao employeeDao;
 
     @Test
     void testSaveManyToMany() {
@@ -57,4 +62,52 @@ public class CompanyDaoTestSuite {
 //            System.out.println(e);
 //        }
     }
+
+    @Test
+    void testEmployeeWithLastname() {
+
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarcson");
+        Employee lindaKovalsy = new Employee("Linda", "Kowalski");
+
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+
+        softwareMachine.getEmployees().add(johnSmith);
+        dataMaesters.getEmployees().add(stephanieClarckson);
+        greyMatter.getEmployees().add(lindaKovalsy);
+
+        johnSmith.getCompanies().add(softwareMachine);
+        johnSmith.getCompanies().add(greyMatter);
+        stephanieClarckson.getCompanies().add(dataMaesters);
+        lindaKovalsy.getCompanies().add(dataMaesters);
+        lindaKovalsy.getCompanies().add(greyMatter);
+
+        //When
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+
+        List<Employee> employeesLastName = employeeDao.retrieveEmployeeWithLastname("Smith");
+        List<Company> firstThreeLettersCompany = companyDao.findCompanyByFirstThreeLetters("gre");
+
+        //Then
+        assertEquals(1, employeesLastName.size());
+        assertEquals(1, firstThreeLettersCompany.size());
+
+        //CleanUp
+        try {
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+            // do nothing
+        }
+    }
+
 }

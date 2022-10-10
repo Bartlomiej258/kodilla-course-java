@@ -1,0 +1,28 @@
+{
+    "carName" : "Sports Car",
+    "carBrand" : "Audi",
+    "carSeat" : {git
+    [
+        "material" : "velor"
+        "color" : "black"
+    ],
+    [
+        "material" : "alcantra"
+        "color" : "grey"
+    ],
+
+    [
+        "material" : "velor"
+        "color" : "white"
+    ],
+
+    [
+        "material" : "leather"
+        "color" : "black-white"
+    ]
+
+    ]
+
+    "engine" : "2.0"
+    }
+}

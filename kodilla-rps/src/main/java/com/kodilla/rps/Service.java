@@ -98,7 +98,9 @@ public class Service {
 
         while (roundNumber < numberOfRounds) {
             System.out.println("Round " + ++roundNumber);
-//            roundNumber++;
+            System.out.println("Pass 1 = rock");
+            System.out.println("Pass 2 = paper");
+            System.out.println("Pass 3 = scissors");
             chooseMove();
             System.out.println("The number of your wins: " + playerWinner + " The number of computer wins " + computerWinner);
         }
@@ -106,7 +108,7 @@ public class Service {
             System.out.println("You are the Winner!");
         } else if (playerWinner == computerWinner) {
             System.out.println("The game ended in na draw");
-        } else if (playerWinner < computerWinner) {
+        } else {
             System.out.println("Computer is the Winner!");
         }
         endOfNot();
@@ -131,7 +133,7 @@ public class Service {
         } else if (!shape.getShape().equals("paper") || !shape.getShape().equals("scissors") || !shape.getShape().equals("rock")) {
             System.out.println("Wrong choice, minus 1 point");
             if (playerWinner > 0)
-            playerWinner--;
+                playerWinner--;
         }
     }
 

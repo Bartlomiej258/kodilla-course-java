@@ -7,11 +7,19 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.findCompanyByFirstThreeLetters",
-        query = "SELECT * FROM COMPANIES" +
-                " WHERE LEFT(COMPANY_NAME , 3) = :NAME ",
-        resultClass = Company.class)
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.returnFirstThreeSignFromCompanyName",
+                query = "SELECT * FROM COMPANIES" + "WHERE  SUBSTRING(COMPANY_NAME,1,3) = :NAME" ,
+                resultClass = Company.class
+        ),
+        @NamedNativeQuery(
+                name = "Company.returnNameCompany",
+                query = "SELECT * FROM COMPANIES" + " WHERE COMPANY_NAME LIKE CONCAT('%', :COMPANYNAME, '%')",
+                resultClass = Company.class
+        )
+})
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

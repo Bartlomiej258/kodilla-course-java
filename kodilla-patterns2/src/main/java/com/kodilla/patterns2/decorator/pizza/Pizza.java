@@ -1,2 +1,8 @@
-package com.kodilla.patterns2.decorator.pizza;public interface Pizza {
+package com.kodilla.patterns2.decorator.pizza;
+
+import java.math.BigDecimal;
+
+public interface Pizza {
+    BigDecimal getPizzaPrice();
+    String getPizzaIngredients();
 }

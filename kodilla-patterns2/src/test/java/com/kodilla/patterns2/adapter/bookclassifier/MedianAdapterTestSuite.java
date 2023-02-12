@@ -2,12 +2,13 @@ package com.kodilla.patterns2.adapter.bookclassifier;
 
 import com.kodilla.patterns2.adapter.bookclassifier.librarya.BookA;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+@SpringBootTest
 public class MedianAdapterTestSuite {
 
     @Test
